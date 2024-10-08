@@ -3,12 +3,16 @@ import groq
 import os
 import json
 import time
-from dotenv import load_dotenv
 
-load_dotenv()
+# Get the API key from environment variables
+api_key = os.getenv("GROQ_API_KEY")
 
-# Initialize Groq client
-client = groq.Groq(api_key=os.environ.get("GROQ_API_KEY"),)
+# Ensure that the API key is available
+if not api_key:
+    st.error("API key not found! Please check your environment variables.")
+
+# Initialize the Groq client
+client = groq.Groq(api_key=api_key)
 
 def make_api_call(messages, max_tokens, is_final_answer=False):
     for attempt in range(3):
