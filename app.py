@@ -3,9 +3,11 @@ import groq
 import os
 import json
 import time
+from dotenv import load_dotenv
+load_dotenv()
 
 # Set your Groq API key
-os.environ["GROQ_API_KEY"] = "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"
+api_key = os.environ["GROQ_API_KEY"]
 
 # Initialize Groq client
 client = groq.Groq()
@@ -18,7 +20,7 @@ def make_api_call(messages, max_tokens, is_final_answer=False):
                 messages=messages,
                 max_tokens=max_tokens,
                 temperature=0.7,
-                response_format={"type": "json_object"}
+                response_format={"type": "json_object"},
             )
             return json.loads(response.choices[0].message.content)
         except Exception as e:
@@ -60,7 +62,7 @@ Your goal is to perform a thorough, adaptive analysis of resumes against job des
     
     while True:
         start_time = time.time()
-        step_data = make_api_call(messages, 1200)
+        step_data = make_api_call(messages, 750)
         end_time = time.time()
         thinking_time = end_time - start_time
         total_thinking_time += thinking_time
