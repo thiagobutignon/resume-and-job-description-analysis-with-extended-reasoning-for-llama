@@ -1,0 +1,13 @@
+# Python-specific
+*.pyc
+__pycache__/
+.myenv/
+
+# Environment files
+.env
+
+# macOS-specific
+.DS_Store
+
+# Streamlit-specific
+.streamlit/
