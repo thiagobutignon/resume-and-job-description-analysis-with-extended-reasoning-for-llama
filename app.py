@@ -114,7 +114,7 @@ def main():
     This tool allows you to analyze a resume against a job description using Llama-3.1 reasoning powered by Groq. 
     It will think through the process step by step, identifying matches, gaps, and suggesting improvements for the resume.
                 
-    Open source [repository here](https://github.com/bklieger-groq)
+    Open source [repository here](https://github.com/thiagobutignon/resume-and-job-description-analysis-with-extended-reasoning-for-llama)
     """)
     
     # Text inputs for the resume and job description
