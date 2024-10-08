@@ -106,7 +106,7 @@ Your goal is to perform a thorough, adaptive analysis of resumes against job des
     yield steps, total_thinking_time
 
 def main():
-    st.set_page_config(page_title="g1 prototype", page_icon="🧠", layout="wide")
+    st.set_page_config(page_title="InsightLoop Reasoning", page_icon="🧠", layout="wide")
     
     st.title("Resume and Job Description Analysis with Llama-3.1 on Groq")
     
