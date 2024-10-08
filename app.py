@@ -3,7 +3,9 @@ import groq
 import os
 import json
 import time
-
+from dotenv import load_dotenv
+# Load environment variables from .env file
+load_dotenv()
 # Get the API key from environment variables
 api_key = os.getenv("GROQ_API_KEY")
 
