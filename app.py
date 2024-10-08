@@ -4,13 +4,11 @@ import os
 import json
 import time
 from dotenv import load_dotenv
+
 load_dotenv()
 
-# Set your Groq API key
-api_key = os.environ["GROQ_API_KEY"]
-
 # Initialize Groq client
-client = groq.Groq()
+client = groq.Groq(api_key=os.environ.get("GROQ_API_KEY"),)
 
 def make_api_call(messages, max_tokens, is_final_answer=False):
     for attempt in range(3):
@@ -20,7 +18,7 @@ def make_api_call(messages, max_tokens, is_final_answer=False):
                 messages=messages,
                 max_tokens=max_tokens,
                 temperature=0.7,
-                response_format={"type": "json_object"},
+                response_format={"type": "json_object"}
             )
             return json.loads(response.choices[0].message.content)
         except Exception as e:
